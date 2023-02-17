@@ -1,4 +1,4 @@
-# event_planner
+# Expense_Tracker
 
 A new Flutter project.
 
