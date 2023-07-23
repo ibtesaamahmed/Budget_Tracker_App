@@ -41,35 +41,3 @@ class TransactionList extends StatelessWidget {
           );
   }
 }
-
-
-// Card(
-//                   child: Row(children: <Widget>[
-//                     Container(
-//                       margin: EdgeInsets.all(10),
-//                       padding: EdgeInsets.all(6),
-//                       decoration: BoxDecoration(
-//                           border: Border.all(
-//                               color: Theme.of(context).primaryColor, width: 3)),
-//                       child: Text(
-//                         '\$' + txn[index].amount.toStringAsFixed(2),
-//                       ),
-//                     ),
-//                     Container(
-//                       child: Column(
-//                         crossAxisAlignment: CrossAxisAlignment.start,
-//                         children: <Widget>[
-//                           Text(
-//                             txn[index].title,
-//                           ),
-//                           Text(
-//                             DateFormat.yMMMd().format(txn[index].date),
-//                             style: TextStyle(
-//                               color: Colors.grey,
-//                             ),
-//                           )
-//                         ],
-//                       ),
-//                     )
-//                   ]),
-//                 );

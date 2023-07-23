@@ -1,15 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../models/transaction.dart';
 import 'package:intl/intl.dart';
 
 class TransactionItem extends StatefulWidget {
-  // const TransactionItem(
-  //     {Key key, required this.transaction, required this.deletetrans})
-  //     : super(key: key);
   TransactionItem({
     Key? key,
     required this.transaction,

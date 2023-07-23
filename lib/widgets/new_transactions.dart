@@ -1,11 +1,6 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/widgets/adaptive_text_button.dart';
 import 'package:intl/intl.dart';
-
-import 'adaptive_text_button.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addTX;
@@ -95,18 +90,12 @@ class _NewTransactionState extends State<NewTransaction> {
                   decoration: InputDecoration(labelText: 'Title'),
                   controller: _titleController,
                   onSubmitted: (_) => _submitData(),
-                  // onChanged: (val) {
-                  //   titleInput = val;
-                  // },
                 ),
                 TextField(
                   decoration: InputDecoration(labelText: 'Amount'),
                   controller: _amountController,
                   keyboardType: TextInputType.number,
                   onSubmitted: (_) => _submitData(),
-                  // onChanged: (val) {
-                  //   amountInput = val;
-                  // },
                 ),
                 Container(
                   height: 70,

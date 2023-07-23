@@ -19,19 +19,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
-
-        // accentColor: Colors.amber,
-        errorColor: Colors.redAccent,
         fontFamily: 'Quicksand',
         textTheme: TextTheme(
           headline6: TextStyle(
               color: Color.fromARGB(255, 160, 160, 160), fontSize: 16),
-          // bodyText2: TextStyle(
-          //   fontFamily: 'Quicksand',
-          //   fontWeight: FontWeight.bold,
-          //   fontSize: 16,
-          // ),
           button: TextStyle(color: Colors.white),
         ),
         appBarTheme: AppBarTheme(
@@ -39,6 +30,8 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'OpenSans',
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo)
+            .copyWith(error: Colors.redAccent),
       ),
       home: MyHomePage(),
     );
@@ -185,7 +178,6 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
     super.dispose();
   }
 
-  // String titleInput, amountInput;
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
