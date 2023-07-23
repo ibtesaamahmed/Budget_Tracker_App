@@ -25,6 +25,7 @@ class TransactionList extends StatelessWidget {
                   child: Image.asset(
                     'assets/images/waiting.png',
                     fit: BoxFit.cover,
+                    opacity: AlwaysStoppedAnimation(0.5),
                   ),
                 )
               ],

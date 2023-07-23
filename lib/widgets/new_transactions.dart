@@ -46,7 +46,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-  DateTime _selectedDate;
+  DateTime? _selectedDate;
 
   void _submitData() {
     if (_amountController.text.isEmpty) {
@@ -117,10 +117,10 @@ class _NewTransactionState extends State<NewTransaction> {
                         child: Text(
                           _selectedDate == null
                               ? 'No Date Choosen!'
-                              : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}',
+                              : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}',
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.headline6.color),
+                                  Theme.of(context).textTheme.headline6!.color),
                         ),
                       ),
                       AdaptiveTextButton('Choose Date', _showDatePicker)
@@ -134,7 +134,7 @@ class _NewTransactionState extends State<NewTransaction> {
                   child: Text(
                     'Add Transaction',
                     style: TextStyle(
-                        color: Theme.of(context).textTheme.button.color),
+                        color: Theme.of(context).textTheme.button!.color),
                   ),
                 ),
               ]),

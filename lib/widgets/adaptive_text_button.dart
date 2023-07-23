@@ -7,7 +7,7 @@ import 'new_transactions.dart';
 
 class AdaptiveTextButton extends StatelessWidget {
   final String text;
-  final Function handler;
+  final Function() handler;
 
   AdaptiveTextButton(this.text, this.handler);
 

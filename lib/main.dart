@@ -16,10 +16,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
-        accentColor: Colors.amber,
+
+        // accentColor: Colors.amber,
         errorColor: Colors.redAccent,
         fontFamily: 'Quicksand',
         textTheme: TextTheme(
@@ -188,8 +190,9 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
-    final PreferredSizeWidget appbar =
-        Platform.isIOS ? _IosAppBar() : _AndroidAppBar();
+    final PreferredSizeWidget appbar = Platform.isIOS
+        ? _IosAppBar() as PreferredSizeWidget
+        : _AndroidAppBar() as PreferredSizeWidget;
     final txListWidget = Container(
         height: (mediaQuery.size.height -
                 appbar.preferredSize.height -
@@ -203,16 +206,18 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               if (isLandscape)
-                ..._buildLandscapeContent(mediaQuery, appbar, txListWidget),
+                ..._buildLandscapeContent(
+                    mediaQuery, appbar as AppBar, txListWidget),
               if (!isLandscape)
-                ..._buildPortraitContent(mediaQuery, appbar, txListWidget),
+                ..._buildPortraitContent(
+                    mediaQuery, appbar as AppBar, txListWidget),
             ]),
       ),
     );
     return Platform.isIOS
         ? CupertinoPageScaffold(
             child: pageBody,
-            navigationBar: appbar,
+            navigationBar: appbar as ObstructingPreferredSizeWidget,
           )
         : Scaffold(
             appBar: appbar,
@@ -220,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,
             floatingActionButton: Platform.isIOS
-                ? () {}
+                ? null
                 : FloatingActionButton(
                     child: Icon(Icons.add),
                     onPressed: () => _startAddNewTransaction(context),
